@@ -5,13 +5,14 @@ import { json, error } from '@sveltejs/kit';
 
 export async function GET() {
     // get NFL state from sleeper (week and year)
-    const [nflStateRes, leagueDataRes, playoffsRes] = await waitForAll(
+	//const [nflState, leagueData, playoffs] = await waitForAll(
+    const [nflState, leagueData] = await waitForAll(
         fetch(`https://api.sleeper.app/v1/state/nfl`, {compress: true}),
         fetch(`https://api.sleeper.app/v1/league/${leagueID}`, {compress: true}),
         fetch(`https://api.sleeper.app/v1/league/${leagueID}/winners_bracket`, {compress: true}),
     )
-    
-    const [nflState, leagueData, playoffs] = await waitForAll(
+    //const [nflState, leagueData, playoffs] = await waitForAll(
+    const [nflState, leagueData] = await waitForAll(
         nflStateRes.json(),
         leagueDataRes.json(),
         //playoffsRes.json(),
@@ -20,7 +21,8 @@ export async function GET() {
 	let year = nflState.league_season;
     const regularSeasonLength = leagueData.settings.playoff_week_start - 1;
     //const playoffLength = playoffs.pop().r;
-    const fullSeasonLength = regularSeasonLength + playoffLength;
+	//const fullSeasonLength = regularSeasonLength + playoffLength
+    const fullSeasonLength = regularSeasonLength;
 
     const resPromises = [
         fetch(`https://api.sleeper.app/v1/players/nfl`, {compress: true})
