@@ -21,7 +21,7 @@ https://github.com/nmelhado/league-page/blob/master/TRAINING_WHEELS.md#ii-adding
 
 export const managers = [
     {
-    "managerID" : "463127531231375360",
+      "managerID" : "463127531231375360",
     //   "roster": 1,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
     //   "name": "Your Name",
     //   "tookOver": 2020, // (optional) used if a manager took over a team, delete this line or change to null otherwise
@@ -89,7 +89,7 @@ export const managers = [
     //   "tradingScale": 10, // 1 - 10
     //   "preferredContact": "Text", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
     },
-   {
+    {
     "managerID" : "636690466544373760",
     //   "roster": 4,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
     //   "name": "Your Name",
@@ -112,7 +112,7 @@ export const managers = [
     //   "tradingScale": 10, // 1 - 10
     //   "preferredContact": "Text", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
     },
-  {
+    {
     "managerID" : "723693461827592192",
     //   "roster": 5,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
     //   "name": "Mark Judge",
@@ -135,7 +135,7 @@ export const managers = [
     //   "tradingScale": 10, // 1 - 10
     //   "preferredContact": "Text", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
     },
-  {
+    {
     "managerID" : "870932271593607168",
     //   "roster": 6,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
     //   "name": "Clint",
@@ -181,7 +181,7 @@ export const managers = [
     //   "tradingScale": 10, // 1 - 10
     //   "preferredContact": "Text", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
     },
-   {
+    {
     "managerID" : "1093664747951616000",
     //   "roster": 8,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
     //   "name": "Your Name",
@@ -204,7 +204,7 @@ export const managers = [
     //   "tradingScale": 10, // 1 - 10
     //   "preferredContact": "Text", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
     },
-   {
+    {
     "managerID" : "1099528729073655808",
     //   "roster": 9,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
     //   "name": "Your Name",
@@ -227,7 +227,7 @@ export const managers = [
     //   "tradingScale": 10, // 1 - 10
     //   "preferredContact": "Text", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
     },
-  {
+    {
     "managerID" : "1130949881949175808",
     //   "roster": 10,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
     //   "name": "Your Name",
@@ -273,8 +273,8 @@ export const managers = [
     //   "tradingScale": 10, // 1 - 10
     //   "preferredContact": "Text", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
     },
-  {
-    //   "managerID" : "1165120068594921472",
+    {
+    "managerID" : "1165120068594921472",
     //   "roster": 12,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
     //   "name": "Your Name",
     //   "tookOver": 2020, // (optional) used if a manager took over a team, delete this line or change to null otherwise
@@ -296,7 +296,7 @@ export const managers = [
     //   "tradingScale": 10, // 1 - 10
     //   "preferredContact": "Text", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
     },
-   {
+    {
     "managerID" : "1264799782656815104",
     //   "roster": 13,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
     //   "name": "Your Name",
@@ -319,7 +319,7 @@ export const managers = [
     //   "tradingScale": 10, // 1 - 10
     //   "preferredContact": "Text", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
     },
-  {
+    {
     "managerID" : "1264951929058893824",
     //   "roster": 14,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
     //   "name": "Your Name",
@@ -342,7 +342,7 @@ export const managers = [
     //   "tradingScale": 10, // 1 - 10
     //   "preferredContact": "Text", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
     },
-  {
+    {
     "managerID" : "1264984139988226048",
     //   "roster": 15,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
     //   "name": "name",
@@ -365,7 +365,7 @@ export const managers = [
     //   "tradingScale": 10, // 1 - 10
     //   "preferredContact": "Text", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
     },
-   {
+    {
     "managerID" : "1265009573694021632",
     //   "roster": 16,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
     //   "name": "Ethan",
@@ -388,7 +388,7 @@ export const managers = [
     //   "tradingScale": 10, // 1 - 10
     //   "preferredContact": "Text", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
     },
-  {
+    {
     "managerID" : "1265022684299808768",
     //   "roster": 17,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
     //   "name": "Josh",
@@ -411,7 +411,7 @@ export const managers = [
     //   "tradingScale": 10, // 1 - 10
     //   "preferredContact": "Text", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
     },
-   {
+    {
     "managerID" : "1265082248038711296",
     //   "roster": 18,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
     //   "name": "Your Name",
