@@ -115,7 +115,7 @@ export const managers = [
   {
     "managerID" : "723693461827592192",
     //   "roster": 5,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
-    "name": "Mark Judge",
+    //   "name": "Mark Judge",
     //   "tookOver": 2020, // (optional) used if a manager took over a team, delete this line or change to null otherwise
     //   "location": "Brooklyn", // (optional)
     //   "bio": "Lorem ipsum...",
@@ -138,7 +138,7 @@ export const managers = [
   {
     "managerID" : "870932271593607168",
     //   "roster": 6,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
-    "name": "Clint",
+    //   "name": "Clint",
     //   "tookOver": 2020, // (optional) used if a manager took over a team, delete this line or change to null otherwise
     //   "location": "Brooklyn", // (optional)
     //   "bio": "Lorem ipsum...",
@@ -253,7 +253,7 @@ export const managers = [
   {
     "managerID" : "1135336552806252544",
     //   "roster": 11,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
-    "name": "Mixon",
+    //   "name": "Mixon",
     //   "tookOver": 2020, // (optional) used if a manager took over a team, delete this line or change to null otherwise
     //   "location": "Brooklyn", // (optional)
     //   "bio": "Lorem ipsum...",
@@ -274,7 +274,7 @@ export const managers = [
     //   "preferredContact": "Text", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
     },
   {
-    "managerID" : "1165120068594921472",
+    //   "managerID" : "1165120068594921472",
     //   "roster": 12,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
     //   "name": "Your Name",
     //   "tookOver": 2020, // (optional) used if a manager took over a team, delete this line or change to null otherwise
@@ -368,7 +368,7 @@ export const managers = [
    {
     "managerID" : "1265009573694021632",
     //   "roster": 16,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
-    "name": "Ethan",
+    //   "name": "Ethan",
     //   "tookOver": 2020, // (optional) used if a manager took over a team, delete this line or change to null otherwise
     //   "location": "Brooklyn", // (optional)
     //   "bio": "Lorem ipsum...",
@@ -391,7 +391,7 @@ export const managers = [
   {
     "managerID" : "1265022684299808768",
     //   "roster": 17,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
-    "name": "Josh",
+    //   "name": "Josh",
     //   "tookOver": 2020, // (optional) used if a manager took over a team, delete this line or change to null otherwise
     //   "location": "Brooklyn", // (optional)
     //   "bio": "Lorem ipsum...",
