@@ -5,24 +5,22 @@ import { json, error } from '@sveltejs/kit';
 
 export async function GET() {
     // get NFL state from sleeper (week and year)
-	//const [nflState, leagueData, playoffs] = await waitForAll(
-    const [nflState, leagueData] = await waitForAll(
+	const [nflState, leagueData, playoffs] = await waitForAll(
         fetch(`https://api.sleeper.app/v1/state/nfl`, {compress: true}),
         fetch(`https://api.sleeper.app/v1/league/${leagueID}`, {compress: true}),
         fetch(`https://api.sleeper.app/v1/league/${leagueID}/winners_bracket`, {compress: true}),
     )
-    //const [nflState, leagueData, playoffs] = await waitForAll(
-    const [nflState, leagueData] = await waitForAll(
+    const [nflState, leagueData, playoffs] = await waitForAll(
         nflStateRes.json(),
         leagueDataRes.json(),
-        //playoffsRes.json(),
+        playoffsRes.json(),
     )
 
 	let year = nflState.league_season;
     const regularSeasonLength = leagueData.settings.playoff_week_start - 1;
-    //const playoffLength = playoffs.pop().r;
-	//const fullSeasonLength = regularSeasonLength + playoffLength
-    const fullSeasonLength = regularSeasonLength;
+    const playoffLength = playoffs.pop().r;
+	const fullSeasonLength = regularSeasonLength + playoffLength;
+
 
     const resPromises = [
         fetch(`https://api.sleeper.app/v1/players/nfl`, {compress: true})
