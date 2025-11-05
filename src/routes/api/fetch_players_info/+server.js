@@ -14,7 +14,7 @@ export async function GET() {
     const [nflState, leagueData, playoffs] = await waitForAll(
         nflStateRes.json(),
         leagueDataRes.json(),
-        playoffsRes.json(),
+        //playoffsRes.json(),
     )
 
 	let year = nflState.league_season;
