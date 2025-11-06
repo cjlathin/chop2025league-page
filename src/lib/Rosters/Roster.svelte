@@ -8,6 +8,8 @@
 
 	$: team = leagueTeamManagers.teamManagersMap[leagueTeamManagers.currentSeason][roster.roster_id].team;
 	$: waiverBudgetUsed = roster?.settings?.waiver_budget_used ?? 0;
+	// Total waiver budget is fixed at 1000
+	$: waiverBudgetRemaining = 1000 - waiverBudgetUsed;
 
 	let i = 0;
 
@@ -275,7 +277,7 @@
 						<img alt="team avatar" class="teamAvatar" src="{team ? team.avatar : 'https://sleepercdn.com/images/v2/icons/player_default.webp'}" />
 						{team?.name ? team.name : 'No Manager'}
 						<br/><br/>
-						<span class="waiver-budget"> (Waiver Used: {waiverBudgetUsed})</span>
+						<span class="waiver-budget"> (FAAB Remaining: {waiverBudgetRemaining)</span>
 					</h3>
 
 					<div class="record">
