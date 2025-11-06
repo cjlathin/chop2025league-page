@@ -19,7 +19,15 @@ export async function GET() {
 
 	let year = nflState.league_season;
     const regularSeasonLength = leagueData.settings.playoff_week_start - 1;
-    const playoffLength = playoffs.pop().r;
+
+	let playoffLength = 0;
+
+	if (Array.isArray(playoffs) && playoffs.length > 0) {
+    	const lastRound = playoffs[playoffs.length - 1];
+    	playoffLength = lastRound?.r ?? 0;
+	}
+
+	
     const fullSeasonLength = regularSeasonLength + playoffLength;
 
     const resPromises = [
