@@ -1,6 +1,5 @@
 <script>
 	import { getTeamFromTeamManagers } from '$lib/utils/helperFunctions/universalFunctions';
-	import { digestTransactions } from '$lib/utils/helperFunctions/leagueTransactions';
 
 	export let move, leagueTeamManagers, players, season;
 
@@ -62,18 +61,7 @@
                 return "rd";
             default:
                 return "th";
-    }
-
-	const getTransactionStatus = (budgetCell) => {
-    	if (!budgetCell || !budgetCell.transaction_id) return null;
-
-    const transaction = leagueTransactions.find(t => t.id === budgetCell.transaction_id);
-    	if (!transaction) return null;
-
-   		return transaction.success ? 'Successful' : 'Failed';
-	}
-
-
+        }
     }
 </script>
 
@@ -247,21 +235,6 @@
             font-size: 0.7em;
         }
     }
-
-	.transactionStatus {
-    font-size: 0.8em;
-    margin-top: 0.4em;
-}
-
-.transactionStatus.success {
-    color: green;
-    font-weight: bold;
-}
-
-.transactionStatus.failed {
-    color: red;
-    font-weight: bold;
-}
 </style>
 
 <tr>
@@ -307,23 +280,17 @@
                         </div>
                     </div>
                 {:else if cell && cell.budget}
-    				<div class="playerSlot">
-        				<div class="avatarHolder">
-            				<div class="tradeSlot budgetHolder">
-                				<span class="budget">faab</span>
-                				<span class="pickInfo">
-                    				{cell.budget.amount}<span class="numEnd">$</span>
-                				</span>
-                				<i class="indicator material-icons" aria-hidden="true">add_circle</i>
-            				</div>
-        				</div>
-        				{#if getTransactionStatus(cell.budget)}
-            				<div class="transactionStatus {getTransactionStatus(cell.budget) === 'Successful' ? 'success' : 'failed'}">
-                				{getTransactionStatus(cell.budget)}
-            				</div>
-        				{/if}
-    				</div>
-
+                    <div class="playerSlot">
+                        <div class="avatarHolder">
+                            <div class="tradeSlot budgetHolder">
+                                <span class="budget">faab</span>
+                                <span class="pickInfo">
+                                    {cell.budget.amount}<span class="numEnd">$</span>
+                                </span>
+                                <i class="indicator material-icons" aria-hidden="true">add_circle</i>
+                            </div>
+                        </div>
+                    </div>
                 {:else if cell && cell == "origin"}
                     <div class="playerSlot">
                         <div class="avatarHolder">
