@@ -1,5 +1,7 @@
 <script>
 	import { getTeamFromTeamManagers } from '$lib/utils/helperFunctions/universalFunctions';
+	import { leagueTransactions } from '$lib/utils/helperFunctions/leagueTransactions';
+
 
 	export let move, leagueTeamManagers, players, season;
 
