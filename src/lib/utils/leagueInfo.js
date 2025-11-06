@@ -13,7 +13,7 @@ export const homepageText = `
   <ul>
   <li>Display remaining teams and their FAAB</li>
   <li>Track how other players spend their FAAB</li>
-  <lil>Big board of available players</li>
+  <li>Big board of available players</li>
   </ul>
   </p>
 `;
