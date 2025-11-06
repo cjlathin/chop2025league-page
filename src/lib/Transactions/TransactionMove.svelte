@@ -2,7 +2,6 @@
 	import { getTeamFromTeamManagers } from '$lib/utils/helperFunctions/universalFunctions';
 	import { digestTransactions } from '$lib/utils/helperFunctions/leagueTransactions';
 
-
 	export let move, leagueTeamManagers, players, season;
 
 	const getAvatar = (pos, player) => {
