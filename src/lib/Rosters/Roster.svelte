@@ -277,7 +277,7 @@
 						<img alt="team avatar" class="teamAvatar" src="{team ? team.avatar : 'https://sleepercdn.com/images/v2/icons/player_default.webp'}" />
 						{team?.name ? team.name : 'No Manager'}
 						<br/>
-						<span class="waiver-budget"> (FAAB Remaining: {waiverBudgetRemaining)</span>
+						<span class="waiver-budget"> (FAAB Remaining: {waiverBudgetRemaining})</span>
 					</h3>
 
 					<div class="record">
