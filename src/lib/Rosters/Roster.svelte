@@ -265,7 +265,7 @@
 				<Cell colspan=4 class="r_{division} clickable">
 					<h3 onclick={() => gotoManager({leagueTeamManagers, rosterID: roster.roster_id})}>
 						<img alt="team avatar" class="teamAvatar" src="{team ? team.avatar : 'https://sleepercdn.com/images/v2/icons/player_default.webp'}" />
-						{team?.name ? team.name : 'No Manager'}
+						{team?.waiver_budget_used ? team.waiver_budget_used : 'No Manager'}
 					</h3>
 
 					<div class="record">
