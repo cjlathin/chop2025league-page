@@ -7,6 +7,7 @@
 	export let roster, leagueTeamManagers, startersAndReserve, players, rosterPositions, division, expanded;
 
 	$: team = leagueTeamManagers.teamManagersMap[leagueTeamManagers.currentSeason][roster.roster_id].team;
+	$: waiverBudgetUsed = roster?.settings?.waiver_budget_used ?? 0;
 
 	let i = 0;
 
@@ -256,6 +257,13 @@
 	:global(.bench) {
 		background-color: var(--ir);
 	}
+
+	.waiver-budget {
+	font-size: 0.9em;
+	color: #777;
+	margin-left: 8px;
+}
+
 </style>
 
 <div class="team">
@@ -266,6 +274,7 @@
 					<h3 onclick={() => gotoManager({leagueTeamManagers, rosterID: roster.roster_id})}>
 						<img alt="team avatar" class="teamAvatar" src="{team ? team.avatar : 'https://sleepercdn.com/images/v2/icons/player_default.webp'}" />
 						{team?.name ? team.name : 'No Manager'}
+						<span class="waiver-budget"> (Waiver Used: {waiverBudgetUsed})</span>
 					</h3>
 
 					<div class="record">
