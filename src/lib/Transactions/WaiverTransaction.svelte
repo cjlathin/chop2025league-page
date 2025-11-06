@@ -1,6 +1,6 @@
 <script>
 	import { gotoManager } from '$lib/utils/helper';
-	import { getTeamFromTeamManagers } from '$lib/utils/helperFunctions/universalFunctions';
+	import { getTeamFromTeamManagers, leagueTransactions } from '$lib/utils/helperFunctions/universalFunctions';
 
 	export let transaction, players, leagueTeamManagers;
 
@@ -12,6 +12,25 @@
         }
         return `background-image: url(https://sleepercdn.com/content/nfl/players/thumb/${player}.jpg), url(https://sleepercdn.com/images/v2/icons/player_default.webp)`;
     }
+
+
+	const getTransactionStatus = (transaction) => {
+    // If your helper returns a boolean or status string, adapt here
+    try {
+        const result = leagueTransactions(transaction.id);
+        if (result === true || result === 'success' || result === 'Successful') {
+            return 'Successful';
+        } else if (result === false || result === 'fail' || result === 'Failed') {
+            return 'Failed';
+        } else {
+            return null; // no known status
+        }
+    } catch (err) {
+        console.error('Error getting transaction status:', err);
+        return null;
+    }
+};
+
 </script>
 
 <style>
@@ -158,22 +177,44 @@
             padding-left: 0;
             font-size: 0.9em;
         }
+		.transactionStatus {
+    font-size: 0.8em;
+    margin-left: 0.5em;
+    font-weight: bold;
+}
+
+.transactionStatus.success {
+    color: green;
+}
+
+.transactionStatus.failed {
+    color: red;
+}
+
+
     }
 </style>
 
 <div class="waiverTransaction clickable" onclick={() => gotoManager({year: transaction.season, leagueTeamManagers, rosterID: owner})}>
     <div class="name">
-        <span class="ownerName">
-            {getTeamFromTeamManagers(leagueTeamManagers, owner, transaction.season).name}
-            {#if getTeamFromTeamManagers(leagueTeamManagers, owner, transaction.season).name != getTeamFromTeamManagers(leagueTeamManagers, owner).name}
-                <span class="currentOwner">({getTeamFromTeamManagers(leagueTeamManagers, owner).name})</span>
-            {/if}
-            {#if transaction.moves[0][0].bid}
-                <span class="bid">
-                    - {transaction.moves[0][0].bid}$
-                </span>
-            {/if}
+       <span class="ownerName">
+    {getTeamFromTeamManagers(leagueTeamManagers, owner, transaction.season).name}
+    {#if getTeamFromTeamManagers(leagueTeamManagers, owner, transaction.season).name != getTeamFromTeamManagers(leagueTeamManagers, owner).name}
+        <span class="currentOwner">({getTeamFromTeamManagers(leagueTeamManagers, owner).name})</span>
+    {/if}
+    {#if transaction.moves[0][0].bid}
+        <span class="bid"> - {transaction.moves[0][0].bid}$</span>
+    {/if}
+
+    {#if getTransactionStatus(transaction)}
+        <span
+            class="transactionStatus {getTransactionStatus(transaction) === 'Successful' ? 'success' : 'failed'}"
+        >
+            ({getTransactionStatus(transaction)})
         </span>
+    {/if}
+</span>
+
         <img class="avatar" src="{getTeamFromTeamManagers(leagueTeamManagers, owner, transaction.season).avatar}" alt="{getTeamFromTeamManagers(leagueTeamManagers, owner, transaction.season).name} avatar"/>
     </div>
     <div class="core">
