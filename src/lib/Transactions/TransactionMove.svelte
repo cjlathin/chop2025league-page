@@ -235,17 +235,6 @@
             font-size: 0.7em;
         }
     }
-
-	.successful-claim {
-		border-color: #00c851 !important; /* green border */
-		background-color: rgba(0, 200, 81, 0.1);
-	}
-
-	.failed-claim {
-		border-color: #ff4444 !important; /* red border */
-		background-color: rgba(255, 68, 68, 0.1);
-		opacity: 0.7;
-	}
 </style>
 
 <tr>
@@ -256,11 +245,7 @@
                 <div class="line lineR {checkR(cell, ix) ? "hidden" : ""}" />
                 {#if cell && cell.player}
                     <div class="playerSlot">
-                            <div
-	class="tradeSlot playerAvatar {cell.is_successful === false ? 'failed-claim' : 'successful-claim'}"
-	style="border-color: var(--{players[cell.player].pos}); {getAvatar(players[cell.player].pos, cell.player)}"
->
-
+                            <div class="tradeSlot playerAvatar" style="border-color: var(--{players[cell.player].pos}); {getAvatar(players[cell.player].pos, cell.player)}">
                                 <i class="indicator material-icons" aria-hidden="true">add_circle</i>
                             </div>
                         <div class="nameHolder">
@@ -271,9 +256,6 @@
                                     -
                                     <span>{players[cell.player].t}</span> 
                                 {/if}
-								{#if cell.is_successful === false}
-	<div class="playerInfo" style="color: #ff4444; font-weight: bold;">Failed</div>
-{/if}
                             </span>
                         </div>
                     </div>
