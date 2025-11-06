@@ -1,6 +1,7 @@
 <script>
 	import { gotoManager } from '$lib/utils/helper';
 	import { getTeamFromTeamManagers, leagueTransactions } from '$lib/utils/helperFunctions/universalFunctions';
+	import { digestTransaction } from '$lib/utils/helperFunctions/leagueTransactions';
 
 	export let transaction, players, leagueTeamManagers;
 
