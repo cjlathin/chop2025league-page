@@ -205,30 +205,30 @@ const digestDate = (tStamp) => {
 	return month + ' ' + date + ' ' + year + ', ' + (hour % 12 == 0 ? 12 : hour % 12) + ':' + min + (hour / 12 >= 1 ? "PM" : "AM");
 }
 
-const digestTransaction = ({transaction, currentSeason}) => {
-	// don't include failed waiver claims
-	if(transaction.status == 'failed') return {success: false};
+const digestTransaction = ({ transaction, currentSeason }) => {
+	// ✅ Removed the "don't include failed waiver claims" clause
+
 	const handled = [];
 	const transactionRosters = transaction.roster_ids;
 	const bid = transaction.settings?.waiver_bid;
-	const date = digestDate(transaction.status_updated)
+	const date = digestDate(transaction.status_updated);
 	const season = parseInt(date.split(',')[0].split(' ')[2]);
-
 
 	let digestedTransaction = {
 		id: transaction.transaction_id,
 		date,
-        season,
+		season,
 		type: "waiver",
 		rosters: transactionRosters,
-		moves : []
-	}
-	
-	if(transaction.type == "trade") {
+		moves: [],
+		status: transaction.status // optional, can help you display failed vs successful
+	};
+
+	if (transaction.type == "trade") {
 		digestedTransaction.type = "trade";
 	}
-	
-	if(season != currentSeason) {
+
+	if (season != currentSeason) {
 		digestedTransaction.previousOwners = true;
 	}
 
@@ -236,33 +236,26 @@ const digestTransaction = ({transaction, currentSeason}) => {
 	const drops = transaction.drops;
 	const draftPicks = transaction.draft_picks;
 
-	for(let player in adds) {
-		if(!player) {
-			continue;
-		}
+	for (let player in adds) {
+		if (!player) continue;
 		handled.push(player);
 		digestedTransaction.moves.push(handleAdds(transactionRosters, adds, drops, player, bid));
 	}
 
-	for(let player in drops) {
-		if(handled.indexOf(player) > -1) {
-			continue;
-		}
+	for (let player in drops) {
+		if (handled.indexOf(player) > -1) continue;
+		if (!player) continue;
 
 		let move = new Array(transactionRosters.length).fill(null);
-		if(!player) {
-			continue;
-		}
 		move[transactionRosters.indexOf(drops[player])] = {
 			type: "Dropped",
 			player
-		}
+		};
 
 		digestedTransaction.moves.push(move);
 	}
 
-	for(let pick of draftPicks) {
-
+	for (let pick of draftPicks) {
 		let move = new Array(transactionRosters.length).fill(null);
 
 		move[transactionRosters.indexOf(pick.owner_id)] = {
@@ -270,11 +263,11 @@ const digestTransaction = ({transaction, currentSeason}) => {
 			pick: {
 				season: pick.season,
 				round: pick.round,
-				original_owner: null,
-			},
-		}
+				original_owner: null
+			}
+		};
 
-		if(pick.roster_id != pick.previous_owner_id) {
+		if (pick.roster_id != pick.previous_owner_id) {
 			move[transactionRosters.indexOf(pick.owner_id)].pick.original_owner = pick.roster_id;
 		}
 
@@ -283,24 +276,24 @@ const digestTransaction = ({transaction, currentSeason}) => {
 		digestedTransaction.moves.push(move);
 	}
 
-	for(let wBudget of transaction.waiver_budget) {
-
+	for (let wBudget of transaction.waiver_budget) {
 		let move = new Array(transactionRosters.length).fill(null);
 
 		move[transactionRosters.indexOf(wBudget.receiver)] = {
 			type: "trade",
 			budget: {
-				amount: wBudget.amount,
-			},
-		}
+				amount: wBudget.amount
+			}
+		};
 
 		move[transactionRosters.indexOf(wBudget.sender)] = "origin";
 
 		digestedTransaction.moves.push(move);
 	}
 
-	return {digestedTransaction, season, success: true};
-}
+	return { digestedTransaction, season, success: true };
+};
+
 
 const handleAdds = (rosters, adds, drops, player, bid) => {
 	let move = new Array(rosters.length).fill(null);
